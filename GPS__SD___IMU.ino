@@ -1,9 +1,16 @@
-
+#include <SparkFun_Ublox_Arduino_Library.h>
+#include <Arduino_LSM9DS1.h>
+#include <Arduino_APDS9960.h>
+#include <SPI.h>
+#include <SD.h>
 
 // SD card variables
+
 File dataFile;
 int chipSelect=4;
+
 //GPS variables
+
 SFE_UBLOX_GPS myGPS;
 long latitude = 0;
 long altitude = 0;
@@ -11,7 +18,9 @@ long speed = 0;
 byte satellites = 0;
 int timeout = 50;
 long last GPS Time = 0;
+
 //IMU(Inertial Measurement Unit) variables
+
 float ax, ay, az;   //accelerometer
 float gx, gy, gz;   //gyroscope
 
@@ -21,6 +30,7 @@ int counter = 0;
 #define LEDR
 #define LEDG
 #define LEDB
+
 void setup() {
   // Setup User terminal
   
@@ -166,4 +176,4 @@ void loop() {
   delay(150);
 }
 
-}
+

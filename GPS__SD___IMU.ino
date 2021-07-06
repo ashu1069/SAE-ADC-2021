@@ -155,7 +155,7 @@ void loop() {
         break;  
     }
   }
-}
+  
   if (dataFile){
     counter+=1;
     String dataString="";
@@ -172,5 +172,5 @@ void loop() {
     dataFile.println(dataString);
   }
   delay(150);
-
+}
 

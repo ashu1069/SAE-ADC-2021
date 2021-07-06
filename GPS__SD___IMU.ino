@@ -80,6 +80,13 @@ void setup() {
     while(1);
   }
   Serial.println("IMU intialized");
+  
+  //Setup Gesture Sensor
+  if(!APDS.begin()){
+    Serial.println("INtialization error")'
+  }
+  APDS.setGestureSensitivity(85);
+  Serial.println("Gesture sensor intialized");
 
 }
 
@@ -129,17 +136,7 @@ void loop() {
       Serial.println(gz);
     }
   }
-void setup() {
-  //Setup Gesture Sensor
-  if(!APDS.begin()){
-    Serial.println("INtialization error")'
-  }
-  APDS.setGestureSensitivity(85);
-  Serial.println("Gesture sensor intialized");
-
-}
-
-void loop() {
+  
   if (APDS.gestureAvailable()){
     switch(ADPS.readGesture()){
       case GESTURE_UP:
@@ -158,6 +155,7 @@ void loop() {
         break;  
     }
   }
+
   if (dataFile){
     counter+=1;
     String dataString="";
